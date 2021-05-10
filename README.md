@@ -1,1 +1,1 @@
-# cryoEM_annealling
+ManifoldEM_CHU is based on software "ManifoldEM" which is used to canculate free-energy landscape of biological molecules and was written by Dr. G. Mashayekhi and her colleagues. (https://github.com/GMashayekhi/ManifoldEM_Matlab) 
