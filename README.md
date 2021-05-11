@@ -25,6 +25,6 @@ Dashti, A., Mashayekhi, G., Shekhar, M. et al. Retrieving functional pathways of
 
 If ManifoldEM is useful in your work, please cite the papers.
 
+4. starfile
 
-
-
+Python scripts to edit starfiles extracted from RELION. 
