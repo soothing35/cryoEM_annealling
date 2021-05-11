@@ -11,7 +11,7 @@ Locres_points is a python script based on localres written by Guillaume Gaullier
 
 Scripts of PyMOL were used to calculate rotational angles and to draw cylinders representing the inter-subunit movements.
 Draw_rotation_axis.py is a modification of sctipt RotationAxis (https://pymolwiki.org/index.php/RotationAxis).
-Modevectors.py is a modification of script Modevectors (https://pymolwiki.org/index.php/ModevectorsManifoldEM).
+Modevectors.py is a modification of script Modevectors (https://pymolwiki.org/index.php/Modevectors).
 
 3. ManifoldEM
 
