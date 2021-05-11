@@ -15,7 +15,7 @@ Modevectors.py is a modification of script Modevectors (https://pymolwiki.org/in
 
 3. ManifoldEM
 
-Several files here were modified from programe package "ManifoldEM" to fit our individual demands (Source link: https://github.com/GMashayekhi/ManifoldEM_Matlab). The path of modified files are identical with ManfifoldEM. 
+Several files here were modified from programe package "ManifoldEM" to fit our individual demands (Source link: https://github.com/GMashayekhi/ManifoldEM_Matlab). The path of modified files are identical with ManifoldEM. 
 
 ManifoldEM is used to canculate free-energy landscape of biological molecules and was established by A. Ourmazd's research group at at the University of Wisconsin Milwaukee (UWM) (https://sites.uwm.edu/ourmazd/). The underlying methodology with application to different experimental datasets is described in the following publications.
 
