@@ -27,4 +27,4 @@ If ManifoldEM is useful in your work, please cite the papers.
 
 4. starfile
 
-Python scripts to edit starfiles extracted from RELION. 
+Python scripts to edit starfiles extracted from RELION 3.08. 
