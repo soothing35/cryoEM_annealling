@@ -2,6 +2,7 @@
 Modified from:
 http://pymolwiki.org/index.php/RotationAxis
 
+An extra function, auto_draw_axis, was added, to calculate the rotational angles among bunch of structures (line 267)
 '''
 
 from __future__ import print_function
