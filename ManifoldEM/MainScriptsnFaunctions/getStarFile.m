@@ -3,8 +3,9 @@ function getStarFile(filename,dir)
 % Copyright (c) 2020 UWM ManifoldEM team 
 % Developed by Ghoncheh Mashayekhi, 2017
 % gets the starfile directory+name as filename and save the information in
-% manifoldEM format in dir
-% modified to label particles from different datasets
+% 
+% Here this program was modified to label particles from different datasets 
+% Modifications were marked by '%%'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('writing star file....')
 doTrsl=0;
@@ -65,7 +66,7 @@ psi=cell2mat(cellfun(@str2num,x_rlnAnglePsi,'un',0))*pi/180;
 df1=cell2mat(cellfun(@str2num,x_rlnDefocusU,'un',0));
 df2=cell2mat(cellfun(@str2num,x_rlnDefocusV,'un',0));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Labels=cell2mat(cellfun(@str2num,x_rlnLabel,'un',0));                     % labels from different datasets
+Labels=cell2mat(cellfun(@str2num,x_rlnLabel,'un',0));                     % extract labels from different datasets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 df=(df1+df2)/2;
