@@ -4,12 +4,13 @@ function getStarFile(filename,dir)
 % Developed by Ghoncheh Mashayekhi, 2017
 % gets the starfile directory+name as filename and save the information in
 % manifoldEM format in dir
+% modified to label particles from different datasets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('writing star file....')
 doTrsl=0;
 f=fopen(filename);
 
-UserGuide=textscan(f, '%s',40,'Delimiter',''); %1
+UserGuide=textscan(f, '%s',40,'Delimiter',''); 
 fclose all;
 
 for i=1:size(UserGuide{1,1},1)
@@ -64,7 +65,7 @@ psi=cell2mat(cellfun(@str2num,x_rlnAnglePsi,'un',0))*pi/180;
 df1=cell2mat(cellfun(@str2num,x_rlnDefocusU,'un',0));
 df2=cell2mat(cellfun(@str2num,x_rlnDefocusV,'un',0));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Labels=cell2mat(cellfun(@str2num,x_rlnLabel,'un',0));                     % label matrix
+Labels=cell2mat(cellfun(@str2num,x_rlnLabel,'un',0));                     % labels from different datasets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 df=(df1+df2)/2;
@@ -111,8 +112,8 @@ qc = [-q(2,:);q(1,:);-q(4,:);q(3,:)];
 q = [q, qc];
 df = [df; df];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Label_matrix3 = [Labels,Labels,Labels,Labels]';
-Label_matrix4 = [Label_matrix3,Label_matrix3];
+Label_matrix3 = [Labels,Labels,Labels,Labels]';       % conduct the same transformation 
+Label_matrix4 = [Label_matrix3,Label_matrix3];        % save labels to 'Label_matrix4'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 save([dir,'/Data/starFile.mat'], 'q', 'df', 'Cs', 'Vol', 'PixSize', 'AmpCont','doTrsl','Label_matrix4')
 
