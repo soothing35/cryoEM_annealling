@@ -1,16 +1,16 @@
 # Modify test.star file and generate a new file noted as test1.star 
 
-f = open('4-3718.star','r+')  # Open the file you want to change
-lines = f.readlines() # Read each lines
+f = open('4-3718.star','r+')  
+lines = f.readlines()
 
 #print(lines) 
 
-g = open('4-3718ready.star' , 'w') # Open
+g = open('4-3718ready.star' , 'w') 
 index = 0
 for line in lines:
     if '@' in line:
         index += 1
-        num = str(index).zfill(7) # Transfer to str
+        num = str(index).zfill(7) 
         particle_inform = line.split()
         particle_inform[0] = num + "@4-3718.mrcs"
         #particle_inform[1] = "3718"
