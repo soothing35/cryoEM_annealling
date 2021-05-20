@@ -28,7 +28,7 @@ for(my $i= $start;$i <=$num;$i++) {
    print FILE "_rlnAngleRot #2\n";
    print FILE "_rlnAngleTilt #3\n";
    print FILE "_rlnAnglePsi #4\n";
-   print FILE "_rlnMicrographName #5\n"
+   print FILE "_rlnMicrographName #5\n"  # Here MicrographName represents labels 
 
    while (my $line = <$align_param>) {
       chomp $line;
