@@ -1,5 +1,9 @@
 '''
 Modified from http://www.pymolwiki.org/index.php/Modevectors
+
+We addad some codes to fit our individual demands:
+Besides alpha carbon (Ca), we also added phosphorus (P) to the list of calculation (line 27)
+We also added a system to color the cylinders in according to their length (line 140-184)
 '''
 from __future__ import print_function
 from pymol.cgo import *    # get constants
