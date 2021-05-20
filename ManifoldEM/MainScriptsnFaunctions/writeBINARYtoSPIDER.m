@@ -3,6 +3,10 @@ function res = writeBINARYtoSPIDER(nClass,nPix,dir,senses,psinums,pcase)
 % Copyright (c) 2020 UWM ManifoldEM team 
 % Developed by Ghoncheh Mashayekhi, 2017- 2020
 % Adopted from the original codes developed by Ali Dashti 2014
+
+
+% Here this program was modified to label particles from different datasets 
+% Modifications were marked by '%%'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 boundCond=0;
@@ -24,13 +28,13 @@ load(fil,'Label_matrix4')
 qq=q;
 numimbin=zeros(1,nClass);
 indsinbin=cell(1,nClass);
-%
+
             
 
 switch pcase
     case 1
         % Using IMGT
-        for prD= [1:15,17:26,28:30,32:44,46,48:55,57:59,61:70,73:87,89:112,114:170,172:194,196:240,242:288,290:309,313:316,324:338,340,343:351,354,360:377,379:387,390,400:405,407:423,425,426,428,435:453,455:458,467,468,471,472,473,476,477,478,479,483:489,493:501,503:506,508:518,520:545,547:568,574:582,585:588]
+        for prD = 1:size(psinums,1)
 
             if psinums(prD,1)~=0
                 %if each line in psinumber is not 0 
@@ -40,7 +44,7 @@ switch pcase
                 q=qq(:,ind); % get the euler angle from the particle orientation matrix 
                 
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                Label_matrix5=Label_matrix4(:,ind);
+                Label_matrix5=Label_matrix4(:,ind);  %conduct the same transformation and calculation to matrixes of labels
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 
                 fileNam1  =[dir,'/NLSA/NLSA_prD',int2str(prD),'_psi_',num2str(psinums(prD,1)),'.mat'];
@@ -56,19 +60,19 @@ switch pcase
                 q=q(:,posPsi); % rearrange the extracted angles according to the calculated trojectories
                 
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                Label_matrix5=Label_matrix5(:,posPsi);
+                Label_matrix5=Label_matrix5(:,posPsi);   %conduct the same transformation and calculation to matrixes of labels
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 
                 nS = size(q,2);
                 if (boundCond ==1)
                     q = q(:,conOrder:nS);
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                    Label_matrix5=Label_matrix5(:,conOrder:nS);
+                    Label_matrix5=Label_matrix5(:,conOrder:nS);   %conduct the same transformation and calculation to matrixes of labels
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 else
                     q = q(:,conOrder:nS-conOrder-1); %???
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                    Label_matrix5=Label_matrix5(:,conOrder:nS-conOrder-1);
+                    Label_matrix5=Label_matrix5(:,conOrder:nS-conOrder-1);   %conduct the same transformation and calculation to matrixes of labels
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 end
                 
@@ -94,7 +98,7 @@ switch pcase
                     fileNam2 = [dir,'/Dat/TauVals','_',num2str(bin),'_of_',int2str(nClass),'.dat'];
                     fileNam5 = [dir,'/Dat/qs','_',num2str(bin),'_of_',int2str(nClass),'.dat'];
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                    fileNam6 = [dir,'/Dat/prelabel','_',num2str(bin),'_of_',int2str(nClass),'.dat'];
+                    fileNam6 = [dir,'/Dat/prelabel','_',num2str(bin),'_of_',int2str(nClass),'.dat']; % name the files which contain labels
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                     
                     f1 = fopen(fileNam1,'a');
@@ -112,7 +116,7 @@ switch pcase
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
                     f6 = fopen(fileNam6,'a');
                     fwrite(f6,Label_matrix5(:,tauind),'double');
-                    fclose(f6);
+                    fclose(f6);                                        % save the files which contains labels
                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 end
             end
@@ -140,7 +144,7 @@ switch pcase
             len=length(label)/4;
             label = reshape(label,4,len);
             label = label(1,:);
-            save([dir,'/Dat/label','_',num2str(j),'_of_',int2str(nClass),'.mat'], 'label');
+            save([dir,'/Dat/label','_',num2str(j),'_of_',int2str(nClass),'.mat'], 'label');  % reduct the scale of labels, the same with Euler angles
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
             phi = [];
