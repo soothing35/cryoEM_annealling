@@ -1,6 +1,6 @@
 CryoEM_annealing
 
-CryoEM_annealing is a collection for the paper (name).
+CryoEM_annealing is a collection for the paper (Annealing synchronizes the 70S ribosome into a minimum-energy conformation).
 Welcome to cite our paper and scripts.
 
 1. Locres_points
